@@ -11,8 +11,17 @@ from one_card import *
 from PIL import ImageTk
 
 
-class Cards(Basic):
+class Cards:
     def __init__(self, window):
+        self.window = window
+        self.window.title("Cards Game")
+        rootdow_height = 500
+        rootdow_width = 800
+        x_cordinate = int((window.winfo_screenwidth() / 2) - (rootdow_width / 2))
+        y_cordinate = int((window.winfo_screenheight() / 2) - (rootdow_height / 2))
+        self.window.geometry(f"{rootdow_width}x{rootdow_height}+{x_cordinate}+{y_cordinate}")
+        
+        
         menubar = Menu(self.window)
         file = Menu(menubar, tearoff=0)
         menubar.add_cascade(label="File", menu=file)
